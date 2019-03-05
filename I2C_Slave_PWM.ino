@@ -2,10 +2,13 @@
 
 #define I2C_ADDRESS 1    //i2c Slave Address
 
+const int lowestPin = 2;
+const int highestPin = 13;
+
 void setup() {
   
-  for(int i=2; i<10; i++){
-    pinMode(i, OUTPUT);
+  for(int i=lowestPin; i<=highestPin ; i++){
+    pinMode(i, OUTPUT); //set pin sebagai output
   }
   
   Serial.begin(9600);
@@ -23,10 +26,5 @@ void loop() {
 void receiveEvent(int howMany) {
   int pin = Wire.read();
   int val = Wire.read();    // receive byte as an integer
-  
-  analogWrite(pin, (val==1)? HIGH:LOW);
-  Serial.print("Pin=");
-  Serial.print(pin);
-  Serial.print("\tVal=");
-  Serial.println(val);
+  analogWrite(pin, val);
 }

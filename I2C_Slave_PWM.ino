@@ -1,6 +1,6 @@
 #include <Wire.h>
 
-#define I2C_ADDRESS 1    //i2c Slave Address
+#define I2C_ADDRESS 5    //i2c Slave Address
 
 const int lowestPin = 2;
 const int highestPin = 13;
